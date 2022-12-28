@@ -15,6 +15,7 @@ src: url(../tipografias/Helvetica-Light.otf);
   --color5: #efefef;
 
 }
+
 .bg-light{
   background-color: var(--color3);
 }
