@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//ES">
 <html>
 <head>
@@ -15,25 +16,45 @@
 </head>
 
 
-<body class="bg-dark">
+<body class="bg-dark" style="color:white">
   
 <?php 
+require_once ("connection.php");
   include ("header.php");
+  $rows = array();
+  $sql = "SELECT * FROM contenido where estado_de_archivo='visible'";
+  $result = $connexio->query($sql);
+  while($row = mysqli_fetch_array($result)) {
+    $rows[] = $row;
+}
+
+
+  
 ?>
 
-<section class="container-lg mt-5">
+<section class="container-lg mt-5 " style="color:white">
 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel"  >
   <div class="carousel-inner lol" style="  height: 480px !important; margin-top:8%; margin-bottom:8%;">
-    <div class="carousel-item active" data-bs-interval="10000">
-      <img src="assets\images\img1.jpg" class="d-block w-100" alt="img1">
+
+  <div class="carousel-item active" data-bs-interval="10000">
+  <img src="assets/images/uploads/<?php echo $rows[0]['nombre_de_archivo'] ?>" class="d-block w-100">
+</div>
+  <?php 
+  
+  $i=1;
+  while($i<count($rows)){
+   
+    ?>
+    
+    <div class="carousel-item" data-bs-interval="10000">
+      <img src="assets/images/uploads/<?php echo $rows[$i]['nombre_de_archivo'] ?>" class="d-block w-100">
     </div>
-    <div class="carousel-item" data-bs-interval="2000">
-      <img src="assets\images\images.png" class="d-block w-100" alt="img2">
-    </div>
-    <div class="carousel-item">
-      <img src="assets\images\images (1).jpg" class="d-block w-100"  alt="img3">
-    </div>
+    <?php  $i++;  }?>
+ 
+
+
   </div>
+
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -44,11 +65,13 @@
   </button>
 </div>
 </section>
-</body>
-
 <?php 
     include "footer.php";
+  
 ?>
+</body>
+
+
 <script src="assets/js/bootstrap.bundle.min.js"></script>
 
 </html>
