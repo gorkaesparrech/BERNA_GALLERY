@@ -34,22 +34,48 @@ require_once ("connection.php");
 
 <section class="container-lg mt-5 " style="color:white">
 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel"  >
-  <div class="carousel-inner lol" style="  height: 480px !important; margin-top:8%; margin-bottom:8%;">
-
-  <div class="carousel-item active" data-bs-interval="10000">
-  <img src="assets/images/uploads/<?php echo $rows[0]['nombre_de_archivo'] ?>" class="d-block w-100">
+  <div class="carousel-inner lol" style="   !important; margin-top:8%; margin-bottom:8%;">
+  <?php if ($rows[0]['tipo_contenido']=='foto') {?>
+    <div class="carousel-item active" data-bs-interval="10000">
+  <img src="assets/images/uploads/<?php echo $rows[0]['nombre_de_archivo'] ?>" class="d-block w-100" style=" height:600px; width:auto; object-fit: contain;
+  position: relative;">
 </div>
+  <?php }else{?>
+    
+ 
+
+
+<div class="carousel-item active" data-bs-interval="10000">
+    <video class="img-fluid" autoplay loop muted>
+            <source src="assets/images/uploads/<?php echo $rows[0]['nombre_de_archivo'] ?>" type="video/mp4" />
+    </video>
+
+</div>
+  <?php } ?>
+  
   <?php 
   
   $i=1;
   while($i<count($rows)){
-   
+     if ($rows[$i]['tipo_contenido']=='foto') {
     ?>
     
     <div class="carousel-item" data-bs-interval="10000">
-      <img src="assets/images/uploads/<?php echo $rows[$i]['nombre_de_archivo'] ?>" class="d-block w-100">
+      <img src="assets/images/uploads/<?php echo $rows[$i]['nombre_de_archivo'] ?>" class="d-block w-100" style=" height:600px; width:auto; object-fit: contain;
+  position: relative;"/>
     </div>
-    <?php  $i++;  }?>
+    <?php 
+     }else{?>
+
+<div class="carousel-item" data-bs-interval="10000">
+    <video class="img-fluid d-block w-100" style=" height:600px; width:auto; object-fit: contain;
+  position: relative;" autoplay loop muted>
+            <source src="assets/images/uploads/<?php echo $rows[$i]['nombre_de_archivo'] ?>" type="video/mp4" />
+    </video>
+
+</div>
+    
+<?php }  $i++;  }?>
  
 
 
