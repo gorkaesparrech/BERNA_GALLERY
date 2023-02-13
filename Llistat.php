@@ -48,7 +48,26 @@ require_once ("connection.php");
     ?>
   
   <tr>
-    <td> <img src="assets/images/uploads/<?php echo $rows[$i]['nombre_de_archivo']?>"   style="height: 65px; width:100px;"></td>
+
+    <td> <?php if ($rows[$i]['tipo_contenido']=='foto') {?>
+    
+  <img src="assets/images/uploads/<?php echo $rows[$i]['nombre_de_archivo'] ?>"  style=" height:70px; width:auto; object-fit: contain;
+  position: relative;">
+
+  <?php }else{?>
+    
+ 
+
+
+
+    <video class="img-fluid" style=" height:70px; width:auto; object-fit: contain;
+  position: relative; margin:auto; padding:auto;" autoplay loop muted>
+            <source src="assets/images/uploads/<?php echo $rows[$i]['nombre_de_archivo'] ?>" type="video/mp4" />
+  
+
+</div>
+  <?php } ?>
+</td>
     <td><?php echo $rows[$i]['ID']?></td>
     <td><?php echo $rows[$i]['tipo_contenido']?></td>
     <td><?php echo $rows[$i]['nombre_de_archivo']?></td>
