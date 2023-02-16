@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//ES">
 <html>
 <head>
@@ -26,7 +25,7 @@ require_once ("connection.php");
 
 
 <h1 style="color:white;">Listado de Contenido</h1>
-<table style="width:100%; border-style: solid; color:white;">
+<table class="espacio_tabla" style="width:80%; border-style: solid; color:white;">
 
 <tr>
   <th>Archivo</th>
