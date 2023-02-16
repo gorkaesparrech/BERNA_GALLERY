@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//ES">
 <html>
 <head>
@@ -69,7 +68,7 @@ $targetNewPath=$targetDir.$nombreArchivo.".".$fileType;
 
 if(isset($_POST["submit"]) && !empty($_FILES["img"]["name"])){
     // Allow certain file formats
-    $allowTypes = array('jpg','png','jpeg','gif','pdf','mp4');
+    $allowTypes = array('jpg','png','jpeg','gif','pdf','mp4','mov');
     if(in_array($fileType, $allowTypes)){
         // Upload file to server
         if(move_uploaded_file($_FILES["img"]["tmp_name"], $targetNewPath)){

@@ -59,8 +59,8 @@
             <br>
                 - Analista de dades.</p>
             
-        <div class="bg-color1 rounded-3  px-5  py-4">
-            
+        <div style="text-align:center;" class="px-5  py-4">
+        <iframe width="850" height="425" src="https://www.youtube.com/embed/Ih0wkyLT9zE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
 
 
@@ -104,8 +104,8 @@
             <br>
                 - Expert o experta en intel·ligència artificial per a videojocs.</p>
 
-            <div class="bg-color1 rounded-3  px-5  py-4">
-            
+            <div style="text-align:center;" class="px-5  py-4">
+            <iframe width="850" height="425" src="https://www.youtube.com/embed/wFZEtX2n2bo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
 
         </div>
