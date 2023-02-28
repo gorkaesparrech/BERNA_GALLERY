@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//ES">
 <html>
 <head>
@@ -25,7 +26,7 @@ require_once ("connection.php");
 
 
 <h1 style="color:white;">Listado de Contenido</h1>
-<table class="espacio_tabla" style="width:80%; border-style: solid; color:white;">
+<table style="width:100%; border-style: solid; color:white;">
 
 <tr>
   <th>Archivo</th>
@@ -70,17 +71,45 @@ require_once ("connection.php");
     <td><?php echo $rows[$i]['ID']?></td>
     <td><?php echo $rows[$i]['tipo_contenido']?></td>
     <td><?php echo $rows[$i]['nombre_de_archivo']?></td>
-    <td><?php echo $rows[$i]['estado_de_archivo']?></td>
+    <td>
+    <form action="" method="post" enctype="multipart/form-data">
+            <select name="estado" id="estado"  onchange="this.form.submit()">
+                <option value="<?php echo $rows[$i]['estado_de_archivo'].",".$rows[$i]['ID']?>" selected="selected"><?php echo $rows[$i]['estado_de_archivo']?></option>
+                <?php if ($rows[$i]['estado_de_archivo']=="visible") {?> 
+                  <option value="no visible,<?=$rows[$i]['ID']?>">no visible</option>
+
+                  <?php } else{?> 
+                    <option value="visible,<?=$rows[$i]['ID']?>">visible</option>
+        <?php }?>  
+          </select>
+    </form>
+          <?php 
+require_once ("connection.php");
+if(isset($_POST["estado"])){
+  $aray=$_POST["estado"];
+  $splitaray=explode(",", $aray );
+  $estadoDeArchivo = $splitaray[0];
+  $id=intval($splitaray[1]);
+  $update = $connexio -> query("UPDATE contenido  SET estado_de_archivo = '$estadoDeArchivo' WHERE ID='$id'");
+  header("Location: Llistat.php");
+}
+?>
+</td>
   </tr>
   <?php
   $i++; 
 }
+
   ?>
 
 
  
 </table>
+<?php
 
+
+
+?>
 </body>
 
 <?php 
