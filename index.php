@@ -18,7 +18,7 @@
 <body class="bg-dark" style="color:white">
   
 <?php 
-require_once ("connection.php");
+require_once ("assets/objetos/connection.php");
   include ("header.php");
   $rows = array();
   $sql = "SELECT * FROM contenido where estado_de_archivo='visible'";
@@ -28,8 +28,22 @@ require_once ("connection.php");
 }
 
 
-  
+if (isset($_SESSION['id_usuario'])){ 
 ?>
+
+<section class="container-fluid   text-white" style="margin-top: 100px;  width:50%;">
+      <div class="container-lg  text-white ">
+        <div class="row px-3-sm d-flex justify-content-center ">
+            <a onclick="location.href='Llistat.php'" class=" col-sm-3 col-md btn btn-outline-light px-md-3 m-2 fw-bold" style="font-family: 'trebuc';
+  color: white;">Llistat</a>
+            <a onclick="location.href='upload.php'" class=" col-sm-3 col-md btn btn-outline-light px-md-3 m-2 fw-bold" style="font-family: 'trebuc'; 
+  color: white;">Subir Archivo</a>
+        
+        </div>
+      </div>
+    </section>
+
+<?php } ?>
 
 <section class="container-lg mt-5 " style="color:white">
 <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel"  >
@@ -91,6 +105,15 @@ require_once ("connection.php");
 </div>
 </section>
 <?php 
+
+if(isset($_POST["logout"])){
+  
+  session_unset(); 
+  session_destroy(); 
+  header("Refresh:0");
+  
+}
+
     include "footer.php";
   
 ?>

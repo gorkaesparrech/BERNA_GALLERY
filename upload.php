@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//ES">
 <html>
 <head>
@@ -19,8 +20,8 @@
   
 <?php 
   include ("header.php");
-?>
-
+  if (isset($_SESSION['id_usuario'])){
+    ?>
 <section class="container-lg mt-5 text-light bg-secondary rounded-3 recuadro">
   
 <form action="" method="post" enctype="multipart/form-data">
@@ -52,7 +53,7 @@
 <?php
 
 // Include the database configuration file
-require_once ("connection.php");
+require_once ("assets/objetos/connection.php");
 $statusMsg = 'Please select a file to upload.';
 if(isset($_POST["submit"])){
 $nombreArchivo = $_POST["dname"];
@@ -102,6 +103,7 @@ echo $statusMsg;
 ?>
 <?php 
     require_once ("footer.php");
+}
 ?>
 
 </html>

@@ -23,6 +23,16 @@ src: url(../tipografias/Helvetica-Light.otf);
   margin-right: 25px;
 }
 
+.espacio_tabla{
+  margin: 10px;
+  
+}
+
+.tablaListado{
+  margin-left: 10%;
+}
+
+
 :root {
   --color1: #00ABFF;
   --color2: rgb(100, 100, 100);

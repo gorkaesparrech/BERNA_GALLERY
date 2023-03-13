@@ -1,5 +1,4 @@
-<?php
-  echo'
+
   <header >
     <nav class="navbar navbar-expand-md navbar-dark bg-secondary ">
       <div class="container-lg " >
@@ -12,12 +11,20 @@
             <li class="nav-item my-1">
               <a class="nav-link btn btn-outline-primary px-md-3 me-md-2" href="registrar-login.php">Registrar-se o iniciar sessió</a>
             </li>
+            <?php if (isset($_SESSION['id_usuario'])){ ?>  
+              <li class="nav-item my-1">
+              <form action="index.php" method="post" enctype="multipart/form-data">
+              <button class="nav-link btn btn-outline-primary px-md-3 me-md-2"  type="submit" id="logout" name="logout" value="logout">Tancar sessió </button>
+            </form>
+            
+            </li>
+            <?php } ?>
           </ul>
         </div>
       </div>
     </nav>
     
-  </header>';
-?>
+  </header>
+
 
 

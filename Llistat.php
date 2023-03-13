@@ -19,14 +19,19 @@
 <body class="bg-dark">
   
 <?php 
-require_once ("connection.php");
+
+require_once ("assets/objetos/connection.php");
   include ("header.php");
  
+  if (isset($_SESSION['id_usuario'])){
+
+
 ?>
 
 
-<h1 style="color:white;">Listado de Contenido</h1>
-<table style="width:100%; border-style: solid; color:white;">
+
+<h1 style="color:white; text-align: center; margin-top: 2rem; margin-bottom: 2rem;">Listado de Contenido</h1>
+<table class="tablaListado" style="width:90%; border-style: solid; color:white; margin: auto; text-align: center;">
 
 <tr>
   <th>Archivo</th>
@@ -84,7 +89,7 @@ require_once ("connection.php");
           </select>
     </form>
           <?php 
-require_once ("connection.php");
+require_once ("assets/objetos/connection.php");
 if(isset($_POST["estado"])){
   $aray=$_POST["estado"];
   $splitaray=explode(",", $aray );
@@ -107,7 +112,10 @@ if(isset($_POST["estado"])){
 </table>
 <?php
 
-
+}else{
+  header('Location:index.php');
+  exit();
+}
 
 ?>
 </body>
